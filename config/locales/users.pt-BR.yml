@@ -8,6 +8,9 @@ pt-BR:
         attributes:
           name: 'Nome'
           email: 'E-mail'
+          password: 'Senha'
+          password_confirmation: 'Confirme a senha'
+          email: 'E-mail'
         actions:
           back: 'Voltar'
           edit: 'Editar'

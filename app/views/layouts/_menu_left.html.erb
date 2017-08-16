@@ -2,10 +2,7 @@
   <li>
     <% if current_user %>
       <div class="user-view">
-        <div class="background">
-          <img src="images/office.jpg">
-        </div>
-        <a href="#!user">
+        <a href="<%= profile_path(current_user.profile.id) %>">
           <img class="circle" src="http://www.politize.com.br/wp-content/uploads/2016/08/imagem-sem-foto-de-perfil-do-facebook-1348864936180_956x5001.jpg">
         </a>
         <% if current_user.profile %>

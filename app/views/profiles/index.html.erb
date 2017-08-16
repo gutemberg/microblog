@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Profiles</h1>
+<h1>Perfis</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th><%= I18n.t('active_record.models.profile.attributes.name') %></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,14 +13,8 @@
     <% @profiles.each do |profile| %>
       <tr>
         <td><%= profile.name %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to I18n.t('active_record.models.profile.actions.show'), profile %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Profile', new_profile_path %>

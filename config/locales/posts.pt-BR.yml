@@ -3,6 +3,7 @@ pt-BR:
     models:
       post:
         title:
+          model: 'Postagem'
           posts: 'Postagens'
         attributes:
           description: 'Descrição'
@@ -12,4 +13,5 @@ pt-BR:
           edit: 'Editar'
           new: 'Nova Postagem'
           post: 'Postar'
-          show: 'Visualizar Postagens'
+          destroy: 'Deletar'
+          show: 'Visualizar'

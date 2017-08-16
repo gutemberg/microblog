@@ -5,18 +5,8 @@
 <br>
 
 <%= link_to I18n.t('active_record.models.post.actions.new'),
-  new_post_path, class: 'waves-effect waves-light btn' %>
+  new_post_path, class: 'waves-effect waves-light btn' if current_user %>
 
-<!--<table>-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th><%= I18n.t('active_record.models.post.attributes.title') %></th>-->
-<!--<th><%= I18n.t('active_record.models.post.attributes.description') %></th>-->
-<!--<th colspan="3"></th>-->
-<!--</tr>-->
-<!--</thead>-->
-
-<!--<tbody>-->
 <% @posts.each do |post| %>
     <div class="row">
       <div class="col s12 m6">
@@ -24,12 +14,19 @@
           <div class="card-content white-text">
             <span class="card-title"><%= post.title %></span>
             <p><%= post.description %></p>
+            <hr/>
+            <span class="left">
+              Author: <%= post.profile.name if post.profile %>
+            </span>
             <span class="right"><%= I18n.l(post.created_at, format: :short) %></span>
           </div>
           <div class="card-action">
-            <%= link_to 'Show', post %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% if current_user %>
+                <%= link_to I18n.t('active_record.models.post.actions.edit'),
+                  edit_post_path(post) if current_user.profile == post.profile %>
+                <%= link_to I18n.t('active_record.models.post.actions.destroy'), post, method: :delete,
+                  data: { confirm: 'Are you sure?' } if current_user.profile == post.profile  %>
+            <% end %>
           </div>
         </div>
       </div>

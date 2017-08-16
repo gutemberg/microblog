@@ -1,5 +1,15 @@
 ---
 pt-BR:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} criado com sucesso.'
+      update:
+        notice: '%{resource_name} atualizado com sucesso.'
+      destroy:
+        notice: '%{resource_name} deletado com sucesso.'
+        alert: '%{resource_name} não pode ser deletado.'
+
   activerecord:
     errors:
       messages:
