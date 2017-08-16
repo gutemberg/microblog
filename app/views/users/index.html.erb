@@ -1,6 +1,13 @@
 <h1><%= I18n.t('active_record.models.user.title.models') %></h1>
 <% @users = User.all %>
+
 <% @users.each do |user| %>
-    <%= user.profile.name %><br/>
-    <%= user.email %><br/>
+    <div class="collection waves-block">
+      <div class="collection-item">
+        <%= user.profile.name %><br/>
+        <%= user.email %>
+      </div>
+    </div>
 <% end %>
+
+
