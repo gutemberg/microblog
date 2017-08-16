@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##Microblog
 
-Things you may want to cover:
+Para acesso ao demo acesse: https://mmicroblogg.herokuapp.com
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Tecnologias Utilizadas:
+- Rails 5.1.3
+- Ruby 2.4.0
+- Banco de Dados POSTGRES
