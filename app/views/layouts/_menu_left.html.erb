@@ -10,7 +10,9 @@
       </div>
     <% end %>
   </li>
-  <li><a class="waves-effect" href="#!"><%= I18n.t('menu.posts') %></a></li>
+  <li>
+    <%= link_to I18n.t('menu.posts'), posts_path, class: 'waves-effect' %>
+    <%= link_to I18n.t('menu.users'), users_index_path, class: 'waves-effect' %>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse">
   <i class="material-icons">menu</i>

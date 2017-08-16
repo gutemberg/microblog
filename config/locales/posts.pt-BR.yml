@@ -1,0 +1,15 @@
+pt-BR:
+  active_record:
+    models:
+      post:
+        title:
+          posts: 'Postagens'
+        attributes:
+          description: 'Descrição'
+          title: 'Título'
+        actions:
+          back: 'Voltar'
+          edit: 'Editar'
+          new: 'Nova Postagem'
+          post: 'Postar'
+          show: 'Visualizar Postagens'

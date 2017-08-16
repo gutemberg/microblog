@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= I18n.t('active_record.models.post.attributes.title') %>:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong><%= I18n.t('active_record.models.post.attributes.description') %>:</strong>
+  <%= @post.description %>
+</p>
+
+<%= link_to I18n.t('active_record.models.post.actions.edit'),
+  edit_post_path(@post), class: 'waves-effect waves-light btn' %> |
+<%= link_to I18n.t('active_record.models.post.actions.back'),
+  posts_path, class: 'waves-effect waves-light btn' %>

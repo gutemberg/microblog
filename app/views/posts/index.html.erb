@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= I18n.t('active_record.models.post.title.posts')%></h1>
+
+<br>
+
+<%= link_to I18n.t('active_record.models.post.actions.new'),
+  new_post_path, class: 'waves-effect waves-light btn' %>
+
+<!--<table>-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th><%= I18n.t('active_record.models.post.attributes.title') %></th>-->
+<!--<th><%= I18n.t('active_record.models.post.attributes.description') %></th>-->
+<!--<th colspan="3"></th>-->
+<!--</tr>-->
+<!--</thead>-->
+
+<!--<tbody>-->
+<% @posts.each do |post| %>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card blue-grey darken-1">
+          <div class="card-content white-text">
+            <span class="card-title"><%= post.title %></span>
+            <p><%= post.description %></p>
+            <span class="right"><%= I18n.l(post.created_at, format: :short) %></span>
+          </div>
+          <div class="card-action">
+            <%= link_to 'Show', post %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
+    </div>
+<% end %>
