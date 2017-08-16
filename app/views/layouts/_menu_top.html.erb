@@ -1,20 +1,15 @@
 <!-- Dropdown Structure -->
-<ul id="dropdown1" class="dropdown-content">
-  <li class="divider"></li>
-  <li><%= link_to I18n.t('devise.actions.signup'), new_user_registration_path, :method => :get %></li>
-  <li><%= link_to I18n.t('devise.actions.signin'), new_user_session_path, :method => :get %></li>
-  <li><%= link_to I18n.t('devise.actions.signout'), destroy_user_session_path, :method => :delete %></li>
-</ul>
 <nav>
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">MICROBLOG</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="#">Sass</a></li>
-      <li><a href="#">Components</a></li>
-      <!-- Dropdown Trigger -->
-      <li><a class="dropdown-button" href="#!" data-activates="dropdown1">
-        -- Ações --
-        <i class="material-icons right">arrow_drop_down</i></a></li>
+      <% if !current_user %>
+          <li><%= link_to I18n.t('devise.actions.signup'), new_user_registration_path, :method => :get %></li>
+          <li><%= link_to I18n.t('devise.actions.signin'), new_user_session_path, :method => :get %></li>
+      <% else %>
+          <li><%= current_user.email %></li>
+          <li><%= link_to I18n.t('devise.actions.signout'), destroy_user_session_path, :method => :delete %></li>
+      <% end %>
     </ul>
   </div>
 </nav>
