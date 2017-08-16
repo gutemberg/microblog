@@ -22,7 +22,9 @@
 <% end %>
 </p>
 
-<%= link_to I18n.t('active_record.models.profile.actions.edit'), edit_profile_path(@profile),
-  class: 'waves-effect waves-light btn'%>
+<% if current_user && current_user.profile == @profile %>
+    <%= link_to I18n.t('active_record.models.profile.actions.edit'), edit_profile_path(@profile),
+      class: 'waves-effect waves-light btn'%>
+<% end %>
 <%= link_to I18n.t('active_record.models.profile.actions.back'), profiles_path,
   class: 'waves-effect waves-light btn' %>
