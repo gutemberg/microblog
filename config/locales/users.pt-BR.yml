@@ -1,0 +1,15 @@
+pt-BR:
+  active_record:
+    models:
+      user:
+        title:
+          model: 'Usuário'
+          models: 'Usuários'
+        attributes:
+          name: 'Nome'
+          email: 'E-mail'
+        actions:
+          back: 'Voltar'
+          edit: 'Editar'
+          new: 'Novo Usuário'
+          show: 'Visualizar Usuários'

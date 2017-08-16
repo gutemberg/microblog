@@ -1,0 +1,14 @@
+pt-BR:
+  active_record:
+    models:
+      profile:
+        title:
+          model: 'Perfil'
+          models: 'Perfis'
+        attributes:
+          name: 'Nome'
+          email: 'E-mail'
+        actions:
+          back: 'Voltar'
+          edit: 'Editar'
+          show: 'Visualizar Perfis'

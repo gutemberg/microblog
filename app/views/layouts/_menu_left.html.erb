@@ -5,7 +5,14 @@
         <div class="background">
           <img src="images/office.jpg">
         </div>
-        <a href="#!user"><img class="circle" src="http://www.politize.com.br/wp-content/uploads/2016/08/imagem-sem-foto-de-perfil-do-facebook-1348864936180_956x5001.jpg"></a>
+        <a href="#!user">
+          <img class="circle" src="http://www.politize.com.br/wp-content/uploads/2016/08/imagem-sem-foto-de-perfil-do-facebook-1348864936180_956x5001.jpg">
+        </a>
+        <% if current_user.profile %>
+          <a href="#!email">
+            <span class="black-text email"><%= current_user.profile.name %></span>
+          </a>
+        <% end %>
         <a href="#!email"><span class="black-text email"><%= current_user.email %></span></a>
       </div>
     <% end %>
@@ -13,6 +20,7 @@
   <li>
     <%= link_to I18n.t('menu.posts'), posts_path, class: 'waves-effect' %>
     <%= link_to I18n.t('menu.users'), users_index_path, class: 'waves-effect' %>
+    <%= link_to I18n.t('menu.profiles'), profiles_path, class: 'waves-effect' %>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse">
   <i class="material-icons">menu</i>
