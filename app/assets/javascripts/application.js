@@ -10,6 +10,32 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
+
+//= require materialize
+//= require bootstrap
+//= require bootbox
+
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-toastr
+//= require ngBootbox
+
 //= require_tree .
+
+$('.button-collapse').sideNav({
+    menuWidth: 300, // Default is 300
+    edge: 'left', // Choose the horizontal origin
+    closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+    draggable: true, // Choose whether you can drag to open on touch screens,
+    onOpen: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is opened
+    onClose: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is closed
+  }
+);
+
+function menu(path){
+  window.location.href = path;
+}
