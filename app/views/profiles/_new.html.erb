@@ -1,0 +1,8 @@
+<div class="col-md-8">
+  <form class="form-inline" ng-submit="addObject()">
+    <div class="form-group">
+      <%= text_field_tag '', '', 'ng-model': 'object.name', class: 'form-control' %>
+    </div>
+    <%= button_tag I18n.t('actions.add'), class: 'btn btn-primary'%>
+  </form>
+</div>

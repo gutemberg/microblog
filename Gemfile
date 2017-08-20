@@ -31,3 +31,7 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
+gem 'bower-rails', '~> 0.11.0'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'angular_rails_csrf'
+gem 'sprockets-rails'

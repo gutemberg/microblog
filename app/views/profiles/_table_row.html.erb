@@ -1,0 +1,11 @@
+<script type="text/ng-template" id="row">
+  <td>
+    <a href="#!" ng-click="redirectShow('profiles/' + object.id)"><span>{{object.name}}</span></a>
+  </td>
+  <td>
+    <%= button_tag I18n.t('actions.edit'), 'ng-click': 'editObject(object)',
+      class: 'btn btn-primary btn-xs' if current_user %>
+    <% button_tag I18n.t('actions.destroy'), 'ng-click': 'destroyObject(object, $index)',
+      class: 'btn btn-danger btn-xs' %>
+  </td>
+</script>

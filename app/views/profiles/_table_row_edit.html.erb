@@ -1,0 +1,12 @@
+<script type="text/ng-template" id="form">
+  <td>
+    <%= text_field_tag :name, '', 'ng-model': 'editing.name', class: 'form-control', type: 'text' %>
+  </td>
+  <td>
+    <%= button_tag I18n.t('actions.cancel'), type: :button,
+      'ng-click': 'hideForm()', class: 'btn btn-default btn-xs' %>
+    <%= button_tag I18n.t('actions.save'), type: :button,
+      'ng-click': 'updateObject($index)',
+      class: 'btn btn-success btn-xs' %>
+  </td>
+</script>

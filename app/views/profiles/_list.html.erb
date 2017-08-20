@@ -1,0 +1,11 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <%= render 'table_head' %>
+    <th class="col-md-2"><%= I18n.t('actions.actions') %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="object in list" ng-include="toggleForm(object)"></tr>
+  </tbody>
+</table>

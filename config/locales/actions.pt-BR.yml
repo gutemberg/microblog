@@ -1,0 +1,8 @@
+pt-BR:
+  actions:
+    actions: 'Ações'
+    add: 'Adicionar'
+    cancel: 'Cancelar'
+    destroy: 'Remover'
+    edit: 'Editar'
+    save: 'Salvar'
