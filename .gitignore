@@ -19,5 +19,4 @@
 .byebug_history
 .idea
 config/database.yml
-vendor/assets/*
 npm-debug.log
