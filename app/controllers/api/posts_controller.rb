@@ -25,8 +25,12 @@ module Api
     end
 
     def follow
-      response_with Follower.
+      follower = Follower.
         create!(profile_id: params[:profile], follower: current_user.profile)
+
+      notify_followed(follower)
+
+      response_with follower
     end
 
     def search
@@ -63,6 +67,10 @@ module Api
 
     def order
       %w(asc desc).include?(params[:order]) ? params[:order] : 'asc'
+    end
+
+    def notify_followed(follower)
+      # Aqui falta implementar envio por email de notificação ao perfil que recebeu um seguidor
     end
   end
 end

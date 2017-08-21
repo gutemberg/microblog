@@ -4,8 +4,7 @@
   </td>
   <td>
     <%= button_tag I18n.t('actions.edit'), 'ng-click': 'editObject(object)',
-      class: 'btn btn-primary btn-xs' if current_user %>
-    <% button_tag I18n.t('actions.destroy'), 'ng-click': 'destroyObject(object, $index)',
-      class: 'btn btn-danger btn-xs' %>
+      class: 'btn btn-primary btn-xs',
+      'ng-show': "#{current_user.profile.id}==object.id" %>
   </td>
 </script>
