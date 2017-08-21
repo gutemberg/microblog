@@ -4,7 +4,22 @@
 
 <p>
   <strong><%= I18n.t('active_record.models.profile.attributes.name') %>:</strong>
-  <%= @profile.name %>
+  <%= @profile.name %><br/>
+  <strong><%= I18n.t('active_record.models.user.attributes.email') %>:</strong>
+  <%= @profile.user.email %>
+<hr/>
+
+<h3><%= I18n.t('actions.following') %></h3>
+<% Follower.where(follower: @profile).each do |profile| %>
+    <%= label_tag '', profile.profile.name, class: 'label label-success' %>
+<% end %>
+<hr/>
+
+<h3><%= I18n.t('active_record.models.follower.title.models') %></h3>
+  <% @profile.followers.each do |follower| %>
+    <%= label_tag '', follower.follower.name, class: 'label label-info' %>
+  <% end %>
+<hr/>
 
 <h3><%= I18n.t('active_record.models.post.title.models') %></h3>
 <% @profile.posts.each do |post| %>
@@ -21,6 +36,6 @@
     </div>
 <% end %>
 </p>
-
+<hr/>
 <%= link_to I18n.t('active_record.models.profile.actions.back'), '#!', onclick: "menu('#{profiles_path}')",
   class: 'waves-effect waves-light btn' %>

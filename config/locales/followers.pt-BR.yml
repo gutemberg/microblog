@@ -1,0 +1,7 @@
+pt-BR:
+  active_record:
+    models:
+      follower:
+        title:
+          model: 'Seguidor'
+          models: 'Meus Seguidores'
