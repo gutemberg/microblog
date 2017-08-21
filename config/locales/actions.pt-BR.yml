@@ -2,7 +2,11 @@ pt-BR:
   actions:
     actions: 'Ações'
     add: 'Adicionar'
+    back: 'Voltar'
+    create: 'Criar'
     cancel: 'Cancelar'
     destroy: 'Remover'
     edit: 'Editar'
+    follow: 'Seguir'
+    following: 'Estou seguindo'
     save: 'Salvar'

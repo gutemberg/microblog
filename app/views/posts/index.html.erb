@@ -1,12 +1,17 @@
-<p id="notice"><%= notice %></p>
+<% controllerName = 'PostsCtrl' %>
+<% title = I18n.t('active_record.models.post.title.models') %>
 
-<h1><%= I18n.t('active_record.models.post.title.posts')%></h1>
-
-<br>
-
-<%= link_to I18n.t('active_record.models.post.actions.new'),
-  new_post_path, class: 'waves-effect waves-light btn' if current_user %>
-
-<% @posts.each do |post| %>
-  <%= render 'card', post: post %>
-<% end %>
+<div class="container">
+  <h1><%= title %></h1>
+  <div ng-controller=<%= controllerName %>>
+    <%= render 'search' %>
+    <%= render 'new' if current_user %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'list' %>
+      </div>
+    </div>
+    <%= render 'table_row' %>
+    <%= render 'table_row_edit' %>
+  </div>
+</div>

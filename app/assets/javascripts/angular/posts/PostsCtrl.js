@@ -1,9 +1,9 @@
 var app = angular.module('moduleMain');
 
-app.controller('ProfilesCtrl', function($scope, Profile, toastr) {
-  var Object = Profile;
+app.controller('PostsCtrl', function($scope, Post, toastr) {
+  var Object = Post;
   $scope.editing = {};
-  $scope.sorting = { sort_by: 'name', order: 'asc' };
+  $scope.sorting = { sort_by: 'title', order: 'asc' };
 
   // LOAD LIST
   (function () {
@@ -24,6 +24,7 @@ app.controller('ProfilesCtrl', function($scope, Profile, toastr) {
       function(response, _headers) {
         $scope.list.push(response);
         toastr.success('Registro criado com sucesso!');
+        location.reload();
       },
       function(response) {
         toastr.alert('Errors: ' + response.data.errors.join('. '));
@@ -80,6 +81,15 @@ app.controller('ProfilesCtrl', function($scope, Profile, toastr) {
     );
   };
 
+  $scope.follow = function(profile){
+    Object.follow({ profile: profile },
+      function(response, _headers) {
+        toastr.success('Você está senguindo ' + response + '!');
+        location.reload();
+      }
+    );
+  };
+
   $scope.sortObjects = function(sort_by, order) {
     if ($scope.sorting.sort_by == sort_by) {
       order = (order == 'asc' ? 'desc' : 'asc');
@@ -97,6 +107,16 @@ app.controller('ProfilesCtrl', function($scope, Profile, toastr) {
     );
   };
 
+  $scope.following = function(profile, follower){
+    for(var i = 0; i < follower.length; i++){
+      if(follower[i].follower_id == profile){
+        return true
+      }
+    }
+
+    return false;
+  };
+
   $scope.updateArrowOrder = function() {
     $scope.order = $scope.sorting.order == 'asc' ? 'up' : 'down';
   };
@@ -108,7 +128,7 @@ app.controller('ProfilesCtrl', function($scope, Profile, toastr) {
   });
 
   valid = function() {
-    return !!$scope.object && !!$scope.object.name;
+    return !!$scope.object && !!$scope.object.title;
   };
 
   $scope.redirectShow = function(url){

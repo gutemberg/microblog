@@ -1,0 +1,30 @@
+<script type="text/ng-template" id="form">
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">
+            <%= text_field_tag :title, '', 'ng-model': 'editing.title', class: 'form-control',
+              type: 'text' %>
+          </span>
+          <p><%= text_area_tag :description, '', 'ng-model': 'editing.description',
+            class: 'form-control', type: 'text' %></p>
+          <hr/>
+          <span class="left">
+              Author: {{object.profile.name}}
+            </span>
+          <span class="right">{{object.created_at | date : 'd/M/yy HH:mm'}}</span>
+        </div>
+        <div class="card-action">
+          <% if current_user %>
+              <%= button_tag I18n.t('actions.cancel'), type: :button,
+                'ng-click': 'hideForm()', class: 'btn btn-default btn-xs' %>
+              <%= button_tag I18n.t('actions.save'), type: :button,
+                'ng-click': 'updateObject($index)',
+                class: 'btn btn-success btn-xs' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>

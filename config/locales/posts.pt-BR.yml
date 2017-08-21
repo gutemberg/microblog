@@ -4,7 +4,7 @@ pt-BR:
       post:
         title:
           model: 'Postagem'
-          posts: 'Postagens'
+          models: 'Postagens'
         attributes:
           description: 'Descrição'
           title: 'Título'

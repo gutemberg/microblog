@@ -1,7 +1,7 @@
 var app = angular.module('moduleMain');
 
-app.factory('Profile', ['$resource', function($resource) {
-  var apiRoute = '/api/profiles';
+app.factory('Post', ['$resource', function($resource) {
+  var apiRoute = '/api/posts';
 
   return $resource(apiRoute + '/:id.json', { id: '@id' }, {
     update: { method: 'PUT' },
@@ -11,6 +11,14 @@ app.factory('Profile', ['$resource', function($resource) {
       url: apiRoute + '/search.json',
       params: {
         query: '@query'
+      }
+    },
+    follow: {
+      action: 'follow',
+      method: 'PUT',
+      url: apiRoute + '/follow.json',
+      params: {
+        profile: '@profile'
       }
     },
     delete: {

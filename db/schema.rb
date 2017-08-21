@@ -10,18 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170818024638) do
+ActiveRecord::Schema.define(version: 20170820203508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.date "event_date"
-    t.text "description"
-    t.string "place"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "followers", force: :cascade do |t|
+    t.bigint "follower_id", null: false
+    t.bigint "profile_id", null: false
+    t.index ["follower_id", "profile_id"], name: "index_followers_on_follower_id_and_profile_id", unique: true
+    t.index ["follower_id"], name: "index_followers_on_follower_id"
+    t.index ["profile_id"], name: "index_followers_on_profile_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -56,6 +55,8 @@ ActiveRecord::Schema.define(version: 20170818024638) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "followers", "profiles"
+  add_foreign_key "followers", "profiles", column: "follower_id"
   add_foreign_key "posts", "profiles"
   add_foreign_key "users", "profiles"
 end
