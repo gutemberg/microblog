@@ -60936,14 +60936,6 @@ app.factory('Post', ['$resource', function($resource) {
         query: '@query'
       }
     },
-    follow: {
-      action: 'follow',
-      method: 'PUT',
-      url: apiRoute + '/follow.json',
-      params: {
-        profile: '@profile'
-      }
-    },
     delete: {
       action: 'destroy',
       method: 'DELETE',
@@ -60966,7 +60958,7 @@ app.factory('Post', ['$resource', function($resource) {
 }]);
 var app = angular.module('moduleMain');
 
-app.controller('PostsCtrl', function($scope, Post, toastr) {
+app.controller('PostsCtrl', function($scope, Post, Profile, toastr) {
   var Object = Post;
   $scope.editing = {};
   $scope.sorting = { sort_by: 'title', order: 'asc' };
@@ -61048,7 +61040,7 @@ app.controller('PostsCtrl', function($scope, Post, toastr) {
   };
 
   $scope.follow = function(profile){
-    Object.follow({ profile: profile },
+    Profile.follow({ profile: profile },
       function(response, _headers) {
         toastr.success('Você está senguindo ' + response + '!');
         location.reload();
@@ -61132,6 +61124,14 @@ app.factory('Profile', ['$resource', function($resource) {
       params: {
         sort_by: '@sort_by',
         order: '@order'
+      }
+    },
+    follow: {
+      action: 'follow',
+      method: 'PUT',
+      url: apiRoute + '/follow.json',
+      params: {
+        profile: '@profile'
       }
     }
   });
