@@ -24,19 +24,10 @@ module Api
       head :ok
     end
 
-    def follow
-      follower = Follower.
-        create!(profile_id: params[:profile], follower: current_user.profile)
-
-      notify_followed(follower)
-
-      response_with follower
-    end
-
     def search
       query = params[:query]
-      list = Klass.where('title LIKE ?', "%#{query}%").order('created_at desc')
-               .to_json(include: :profile)
+      list = Klass.where('title LIKE ? OR description LIKE ?', "%#{query}%", "%#{query}%").
+        order('created_at desc').to_json(include: :profile)
 
       respond_with list
     end
@@ -67,10 +58,6 @@ module Api
 
     def order
       %w(asc desc).include?(params[:order]) ? params[:order] : 'asc'
-    end
-
-    def notify_followed(follower)
-      # Aqui falta implementar envio por email de notificação ao perfil que recebeu um seguidor
     end
   end
 end

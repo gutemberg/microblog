@@ -30,6 +30,14 @@ app.factory('Profile', ['$resource', function($resource) {
         sort_by: '@sort_by',
         order: '@order'
       }
+    },
+    follow: {
+      action: 'follow',
+      method: 'PUT',
+      url: apiRoute + '/follow.json',
+      params: {
+        profile: '@profile'
+      }
     }
   });
 }]);

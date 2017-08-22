@@ -13,14 +13,6 @@ app.factory('Post', ['$resource', function($resource) {
         query: '@query'
       }
     },
-    follow: {
-      action: 'follow',
-      method: 'PUT',
-      url: apiRoute + '/follow.json',
-      params: {
-        profile: '@profile'
-      }
-    },
     delete: {
       action: 'destroy',
       method: 'DELETE',

@@ -10,13 +10,13 @@ Rails.application.routes.draw do
     resources :profiles, only: [:index, :create, :update, :destroy] do
       collection do
         get :search
+        put :follow
       end
     end
 
     resources :posts, only: [:index, :create, :update, :destroy] do
       collection do
         get :search
-        put :follow
       end
     end
   end
