@@ -5,6 +5,6 @@
   <td>
     <%= button_tag I18n.t('actions.edit'), 'ng-click': 'editObject(object)',
       class: 'btn btn-primary btn-xs',
-      'ng-show': "#{current_user.profile.id}==object.id" %>
+      'ng-show': "#{current_user.profile.id}==object.id" if current_user %>
   </td>
 </script>
